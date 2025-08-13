@@ -18,16 +18,20 @@ export default function App() {
     ]);
   };
 
-  return (
-    <div className="container">
-      <h1>Quick Notes</h1>
-      <NoteForm onAdd={addNote} />
-      <section className="grid">
-        {notes.length === 0 && <p className="empty">No notes yet.</p>}
-        {notes.map((note) => (
-          <Note key={note.id} note={note} />
-        ))}
-      </section>
-    </div>
-  );
+    const deleteNote = (id) => {
+      setNotes((prev) => prev.filter((note) => note.id !== id));
+    };
+
+    return (
+      <div className="container">
+        <h1>Quick Notes</h1>
+        <NoteForm onAdd={addNote} />
+        <section className="grid">
+          {notes.length === 0 && <p className="empty">No notes yet.</p>}
+          {notes.map((note) => (
+            <Note key={note.id} note={note} onDelete={deleteNote} />
+          ))}
+        </section>
+      </div>
+    );
 }
