@@ -21,6 +21,7 @@ export default function Note({ note, onDelete }) {
         ×
       </button>
 
+      <h4 className="note-title">{note.title || "\u00A0"}</h4>
       <p className="note-text">{note.text}</p>
       <time className="note-date" dateTime={note.createdAt}>
         {formattedDate}

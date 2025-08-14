@@ -10,10 +10,10 @@ function generateId() {
 export default function App() {
   const [notes, setNotes] = useState([]);
 
-  const addNote = (text) => {
+  const addNote = (title, text) => {
     console.log("[App] addNote called with:", text);
     setNotes((prev) => [
-      { id: generateId(), text, createdAt: new Date().toISOString() },
+      { id: generateId(), title, text, createdAt: new Date().toISOString() },
       ...prev,
     ]);
   };

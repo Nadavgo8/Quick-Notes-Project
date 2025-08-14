@@ -12,10 +12,6 @@
   position: relative;
 }
 
-.note-text {
-  margin: 0;
-}
-
 .note-date {
   font-size: 0.8rem;
   color: #6b7280;
@@ -64,4 +60,14 @@
 .note-card:hover .note-delete,
 .note-card:focus-within .note-delete {
   opacity: 1;
+}
+
+.note-text {
+  margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 5;   /* max lines to show */
+  line-clamp: 5;           /* standard property for compatibility */
+  -webkit-box-orient: vertical;
 }
